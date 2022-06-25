@@ -1,5 +1,10 @@
 {
     "name": "mtail-support",
+    "publisher": "gabrielpetry",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/gabrielpetry/mtail-support"
+    },
     "displayName": "mtail support",
     "description": "Google mtail language support",
     "version": "0.0.1",
