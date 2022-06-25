@@ -1,0 +1,68 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "mtail",
+	"patterns": [{
+			"include": "#comments"
+		},
+		{
+			"include": "#metric_definition"
+		},
+		{
+			"include": "#reserved_words"
+		},
+		{
+			"include": "#functions"
+		},
+		{
+			"include": "#regex-variable"
+		},
+		{
+			"include": "#regex-definition"
+		},
+		{
+			"include": "#strings"
+		}
+	],
+	"repository": {
+		"regex-variable": {
+			"patterns": [{
+				"name": "variable.parameter.mtail",
+				"match": "(?<=(\\(\\?P))<.+?>"
+			}]
+		},
+		"metric_definition": {
+			"patterns": [{
+				"name": "keyword.control.mtail",
+				"match": "\\b(counter|gauge|timer|text|histogram)\\b"
+			}]
+		},
+		"reserved_words": {
+			"patterns": [{
+				"name": "keyword.control.mtail",
+				"match": "\\b(after|as|by|const|hidden|def|del|next|otherwise|else|stop|buckets|limit)\\b"
+			}]
+		},
+		"functions": {
+			"patterns": [{
+				"name": "keyword.control.mtail",
+				"match": "\\b[a-zA-Z]+\\("
+			},{
+				"name": "variable.parameter.mtail",
+				"match": "\\$\\w+"
+			}]
+		},
+		"comments": {
+			"patterns": [{
+				"name": "comment.line.number-sign.mtail",
+				"begin": "\\#",
+				"beginCaptures": {
+					"0": {
+						"name": "punctuation.definition.comment.begin.mtail"
+					}
+				},
+				"end": "$"
+			}]
+		}
+	},
+	"scopeName": "source.mtail"
+}

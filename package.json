@@ -1,0 +1,25 @@
+{
+    "name": "mtail-support",
+    "displayName": "mtail support",
+    "description": "Google mtail language support",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.68.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "mtail",
+            "aliases": ["mtail", "mtail"],
+            "extensions": [".mtail"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "mtail",
+            "scopeName": "source.mtail",
+            "path": "./syntaxes/mtail.tmLanguage.json"
+        }]
+    }
+}

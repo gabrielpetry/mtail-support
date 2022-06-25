@@ -1,0 +1,37 @@
+gauge ups_input_voltage
+gauge ups_output_voltage
+gauge ups_output_frequency
+gauge ups_output_power
+gauge ups_battery_voltage
+gauge ups_batery_charge
+gauge ups_temperature
+
+getfilename() =~ /csupcli.log/ {
+  /Tensao de Entrada:\s+(?P<value>[0-9.]+)/ {
+    ups_input_voltage = float($value)
+  }
+
+  /Carga de Bateria:\s+(?P<value>[0-9.]+)/ {
+    ups_batery_charge = float($value)
+  }
+
+  /Tensao de Bateria:\s+(?P<value>[0-9.]+)/ {
+    ups_battery_voltage = float($value)
+  }
+
+  /Frequencia de Saida:\s+(?P<value>[0-9.]+)/ {
+    ups_output_frequency = float($value)
+  }
+
+  /Tensao de Saida:\s+(?P<value>[0-9.]+)/ {
+    ups_output_voltage = float($value)
+  }
+
+  /Potencia de Saida:\s+(?P<value>[0-9.]+)/ {
+    ups_output_power = float($value)
+  }
+
+  /Temperatura:\s+(?P<value>[0-9.]+)/ {
+    ups_temperature = float($value)
+  }
+}
